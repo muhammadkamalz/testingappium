@@ -19,6 +19,12 @@ describe('Mengurutkan barang', () => {
         const sortbox = $('/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup')
         const harganaik = $('~priceAsc')
         //mengecek apakah priceAsc terpilih & aktif
+        const namaproduct = $('//android.widget.TextView[@content-desc="store item text"]')
+        const arraykosong = []
+        for (let produk of namaproduct){
+            const judul = await produk.getText()
+            arraykosong.push(judul)
+        }
         const ceksort = $('~priceAsc').$('~active option')
         //proses untuk mengurutkan
         await sort.click()
